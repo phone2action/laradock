@@ -713,6 +713,10 @@ RUN if [ ${INSTALL_NODE} = true ]; then \
     echo '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm' >> ~/.bashrc \
 ;fi
 
+RUN if [ ${INSTALL_NPM_GULP} = true ]; then \
+  apt-get install -y libnotify-bin \
+;fi
+
 # Add PATH for node
 ENV PATH $PATH:/home/laradock/.node-bin
 
@@ -1421,3 +1425,14 @@ RUN apt-get clean && \
 
 # Set default work directory
 WORKDIR /var/www
+
+# # Run Laravel tasks
+# RUN composer install --no-scripts && \
+#     composer dumpauto && \
+#     php artisan migrate && \
+#     yarn install && \
+#     ./node_modules/gulp/bin/gulp.js && \
+#     yarn run webpack
+
+# # Set default work directory
+# WORKDIR /var/www
