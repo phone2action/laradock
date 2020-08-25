@@ -367,8 +367,16 @@ services:
       depends_on:
         - php-fpm
       networks:
-        - frontend
-        - backend
+        frontend:
+          aliases:
+            - local.phone2action.com
+            - auth-local.phone2action.com
+            - internalauth-local.phone2action.com
+        backend:
+          aliases:
+            - local.phone2action.com
+            - auth-local.phone2action.com
+            - internalauth-local.phone2action.com
 
 ### Blackfire ########################################
     blackfire:
