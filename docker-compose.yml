@@ -372,11 +372,13 @@ services:
             - local.phone2action.com
             - auth-local.phone2action.com
             - internalauth-local.phone2action.com
+            - data-api-local.phone2action.com
         backend:
           aliases:
             - local.phone2action.com
             - auth-local.phone2action.com
             - internalauth-local.phone2action.com
+            - data-api-local.phone2action.com
 
 ### Blackfire ########################################
     blackfire:
